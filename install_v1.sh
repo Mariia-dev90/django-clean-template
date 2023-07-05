@@ -17,7 +17,7 @@ pip install -U pip
 pip install django
 pip install gunicorn
 django-admin startproject config
-mv config djangowebsite
+mv config djangowebsite2
 sudo sed -i "s~dbms_template_path~$project_path~g" gunicorn_config.py
 sudo sed -i "s~dbms_template_user~$user_linux~g" gunicorn_config.py
 sudo sed -i "s~dbms_template_workers~$project_workers~g" gunicorn_config.py
@@ -27,12 +27,12 @@ sudo sed -i "s~dbms_template_web_address~$project_domain~g" default
 
 sudo sed -i "s~dbms_template_path~$project_path~g" bin/start_gunicorn.sh
 sudo chmod +x bin/start_gunicorn.sh
-sudo sed -i "s~dbms_template_path~$project_path~g" djangowebsite.conf
-sudo sed -i "s~dbms_template_user~$user_linux~g" djangowebsite.conf
+sudo sed -i "s~dbms_template_path~$project_path~g" djangowebsite2.conf
+sudo sed -i "s~dbms_template_user~$user_linux~g" djangowebsite2.conf
 
 sudo cp -f default /etc/nginx/sites-enabled
-sudo cp -f gunicorn_config.py $project_path/djangowebsite
-sudo cp -f djangowebsite.conf /etc/supervisor/conf.d
+sudo cp -f gunicorn_config.py $project_path/djangowebsite2
+sudo cp -f djangowebsite2.conf /etc/supervisor/conf.d
 sudo service nginx restart
 sudo service supervisor start
 sudo rm -r .git/
