@@ -38,13 +38,13 @@ sudo sed -i "s~dbms_template_path~$project_path~g" bin/start_gunicorn.sh
 sudo sed -i "s~djangowebsite~$project_name~g" bin/start_gunicorn.sh
 sudo chmod +x bin/start_gunicorn.sh
 
-sudo sed -i "s~dbms_template_path~$project_path~g" djangowebsite.conf
-sudo sed -i "s~dbms_template_user~$user_linux~g" djangowebsite.conf
+sudo sed -i "s~dbms_template_path~$project_path~g" djangowebsite2.conf
+sudo sed -i "s~dbms_template_user~$user_linux~g" djangowebsite2.conf
 
-sudo sed -i "s~program:gunicorn~program:gunicorn_$project_name~g" djangowebsite.conf
+sudo sed -i "s~program:gunicorn~program:gunicorn_$project_name~g" djangowebsite2.conf
 
 mv default nginx_$project_name.conf
-mv djangowebsite.conf supervisor_$project_name.conf
+mv djangowebsite2.conf supervisor_$project_name.conf
 
 sudo cp -f nginx_$project_name.conf /etc/nginx/sites-enabled
 sudo cp -f gunicorn_config.py $project_path/$project_name
