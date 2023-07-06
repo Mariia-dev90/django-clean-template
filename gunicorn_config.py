@@ -1,5 +1,5 @@
 command = 'dbms_template_path/env/bin/gunicorn'
-pythonpath = 'dbms_template_path/djangowebsite/'
+pythonpath = 'dbms_template_path/djangowebsite2/'
 bind = '127.0.0.1:8002'
 workers = dbms_template_workers
 user = 'dbms_template_user'
